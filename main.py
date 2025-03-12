@@ -51,7 +51,14 @@ class StackMachine:
         pass
 
     def run(self, instructions):
-        pass
+        for instruction in instructions:
+            # fine for now
+            op, *args = instruction.split()
+            method = getattr(self, op)
+            if args:
+                method(*args)
+            else:
+                method()
 
 
 
@@ -60,15 +67,15 @@ class StackMachine:
 # potential instruction set
 # + - * / // %
 sm = StackMachine()
-sm.PUSH(6)
-sm.PUSH(7)
-sm.PUSH('+')
-while sm.stack:
-    sm.DEBUG()
-    input()
-    symbol = sm.POP()
-    if symbol == '+':
-        sm.ADD()
-    else:
-        print(symbol)
-sm.DEBUG()
+#  sm.PUSH(6)
+#  sm.PUSH(7)
+#  sm.PUSH('+')
+#  while sm.stack:
+#      sm.DEBUG()
+#      input()
+#      symbol = sm.POP()
+#      if symbol == '+':
+#          sm.ADD()
+#      else:
+#          print(symbol)
+#  sm.DEBUG()
