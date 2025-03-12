@@ -45,7 +45,7 @@ class StackMachine:
     # TODO:
     # - write a list of (mutable) instructions
     # - write a parser for the basic starting instructions
-    # - write a runner
+    # - write a runner (sort of done now)
 
     def parse(self):
         pass
