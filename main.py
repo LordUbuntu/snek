@@ -32,11 +32,8 @@ class StackMachine:
             return self.stack.pop()
         return None
 
-    def PEEK(self):
-        print("peek: {}".format(self.stack[-1]))
-
-    def DEBUG(self):
-        print(self.stack)
+    def PEEK(self, depth=1):
+        print("peek: {}".format(self.stack[-depth:]))
 
     # NOTE:
     # - minimal basic instruction set
