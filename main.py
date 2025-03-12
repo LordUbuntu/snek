@@ -56,7 +56,7 @@ class StackMachine:
             op, *args = instruction.split()
             method = getattr(self, op)
             if args:
-                method(*args)
+                method(*[int(arg) for arg in args])
             else:
                 method()
 
