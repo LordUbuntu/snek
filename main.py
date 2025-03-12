@@ -35,6 +35,9 @@ class StackMachine:
     def PEEK(self, depth=1):
         print("peek: {}".format(self.stack[-depth:]))
 
+    def CLEAR(self):
+        self.stack.clear()
+
     # NOTE:
     # - minimal basic instruction set
     # - easy metaprogramming to build upon and modify instructions
