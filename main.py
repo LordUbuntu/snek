@@ -47,10 +47,8 @@ class StackMachine:
     # - write a parser for the basic starting instructions
     # - write a runner (sort of done now)
 
-    def parse(self, filename):
-        # takes input and maps symbols/words to instructions
-        with open(filename, 'r'):
-            # basic version is just (...if '+', 'ADD", ..., etc)
+    def parse(self):
+        # basic version is just (...if '+', 'ADD", ..., etc)
         pass
 
     def run(self, instructions):
