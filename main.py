@@ -47,6 +47,7 @@ class StackMachine:
     # - minimal basic instruction set
     # - easy metaprogramming to build upon and modify instructions
     # - written very simply
+    # - probably best to start by implementing a RPN calculator
     # TODO:
     # - write a list of (mutable) instructions
     # - write a parser for the basic starting instructions
@@ -54,6 +55,7 @@ class StackMachine:
 
     def parse(self):
         # basic version is just (...if '+', 'ADD", ..., etc)
+        # how would a + b - c + d look in RPN?
         pass
 
     def run(self, instructions):
