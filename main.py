@@ -24,6 +24,11 @@ class StackMachine:
         b = self.stack.pop()
         self.stack.append(a + b)
 
+    def SUB(self):
+        a = self.stack.pop()
+        b = self.stack.pop()
+        self.stack.append(a - b)
+
     def PUSH(self, value):
         self.stack.append(value)
 
