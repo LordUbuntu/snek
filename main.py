@@ -11,9 +11,12 @@
 # This initial version is made based on "500 Lines or Less: A Python
 #   Interpreter in Python"
 #   https://aosabook.org/en/500L/a-python-interpreter-written-in-python.html
-# I think among egg, drake, serpent, and snek that I'll settle of snek
-#   as the name and .snk as the file extension because the name evokes
-#   tinyness/cuteness and simplicity which is the ethos of this language
+#
+# goal is a simple metaprogrammable (concatenative?) stack based language
+#   that implements a small set of composable operations that can
+#   be built upon. May implement a type system if it's not too much
+#   effort an provides benefits over typeless. This isn't meant to be
+#   a massive programming language or anything, simplicity is the goal
 
 class StackMachine:
     def __init__(self):
@@ -43,15 +46,6 @@ class StackMachine:
     def CLEAR(self):
         self.stack.clear()
 
-    # NOTE:
-    # - minimal basic instruction set
-    # - easy metaprogramming to build upon and modify instructions
-    # - written very simply
-    # - probably best to start by implementing a RPN calculator
-    # TODO:
-    # - write a list of (mutable) instructions
-    # - write a parser for the basic starting instructions
-    # - write a runner (sort of done now)
 
     def parse(self):
         # basic version is just (...if '+', 'ADD", ..., etc)
