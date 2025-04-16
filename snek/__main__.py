@@ -48,6 +48,9 @@ class StackMachine:
 
 
     def parse(self):
+        # need to setup basic keywords like what Haskell does,
+        #   keywords maybe as a dict and a way to add keywords
+        #   (but not remove or change base ones)
         # basic version is just (...if '+', 'ADD", ..., etc)
         # how would a + b - c + d look in RPN?
         pass
