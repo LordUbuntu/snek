@@ -17,20 +17,12 @@
 #   be built upon. May implement a type system if it's not too much
 #   effort an provides benefits over typeless. This isn't meant to be
 #   a massive programming language or anything, simplicity is the goal
+# design decisions:
+# - binary operators?
 
 class StackMachine:
     def __init__(self):
         self.stack = []
-
-    def ADD(self):
-        a = self.stack.pop()
-        b = self.stack.pop()
-        self.stack.append(a + b)
-
-    def SUB(self):
-        a = self.stack.pop()
-        b = self.stack.pop()
-        self.stack.append(a - b)
 
     def PUSH(self, value):
         self.stack.append(value)
@@ -46,6 +38,15 @@ class StackMachine:
     def CLEAR(self):
         self.stack.clear()
 
+    def ADD(self):
+        a = self.POP()
+        b = self.POP()
+        self.PUSH(a + b)
+
+    def SUB(self):
+        a = self.POP()
+        b = self.POP()
+        self.PUSH(a - b)
 
     def parse(self):
         # need to setup basic keywords like what Haskell does,
@@ -56,13 +57,13 @@ class StackMachine:
         pass
 
     def run(self, instructions):
+        # assuming stack is already full of literals and symbols like
+        #   ADD 2 3 SUB 4
         for instruction in instructions:
-            # fine for now
-            op, *args = instruction.split()
-            method = getattr(self, op)
-            if args:
-                method(*[int(arg) for arg in args])
+            if type(instruction) == int:
+                continue
             else:
+                method = getattr(self, instruction)
                 method()
 
 
@@ -72,15 +73,11 @@ class StackMachine:
 # potential instruction set
 # + - * / // %
 sm = StackMachine()
-#  sm.PUSH(6)
-#  sm.PUSH(7)
-#  sm.PUSH('+')
-#  while sm.stack:
-#      sm.DEBUG()
-#      input()
-#      symbol = sm.POP()
-#      if symbol == '+':
-#          sm.ADD()
-#      else:
-#          print(symbol)
-#  sm.DEBUG()
+sm.PEEK(10)
+sm.PUSH(1)
+sm.PUSH("ADD")
+sm.PUSH(2)
+sm.PUSH(3)
+sm.PUSH("ADD")
+sm.PEEK(10)
+sm.run(reversed(sm.stack))
