@@ -19,6 +19,8 @@
 #   a massive programming language or anything, simplicity is the goal
 # design decisions:
 # - binary operators?
+#
+# Would deal and hypothesis be overkill? Should I make this a full project? Should I use tox?
 
 class StackMachine:
     def __init__(self):
